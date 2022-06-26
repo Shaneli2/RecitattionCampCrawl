@@ -14,10 +14,7 @@ headers = {
 
 
 # 杨亮讲英文·全民英语背诵营  https://ke.study.163.com/course/detail/59009
-def getRecitationCamp(url=r'https://ke.study.163.com/course/detail/59009'):
-    courseId = re.search(r'\d{5}$',url).group()
-    # print(f'courseId = {courseId}')
-    session = requests.session()
+def getRecitationCamp(url):
     resp = requests.get(url, headers=headers)
     # print(resp.text)
 
@@ -57,6 +54,83 @@ def getRecitationCamp(url=r'https://ke.study.163.com/course/detail/59009'):
             print(f'url_lesson is {url_lesson}')
             print(f'url-article is {url_article}')
             getSubSeries(url_article)
+
+
+# 杨亮讲英文·全民英语背诵营  https://ke.study.163.com/course/detail/59009
+# 每周精讲
+def getRecitationCamp2(url):
+    headers = {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37",
+        "cookie": "_ntes_nnid=d210a1ed73ac8d49791dd9e007b8a7e7,1634192367969; _ntes_nuid=d210a1ed73ac8d49791dd9e007b8a7e7; UM_distinctid=17fbfa77430187-0d1d26d2b671fc-5617185b-100200-17fbfa77431f41; vinfo_n_f_l_n3=3cc07e6b80b1c971.1.0.1648187892685.0.1648187967384; EDUWEBDEVICE=398a0755db534b7f8b428017d18913a2; EDU-YKT-MODULE_GLOBAL_PRIVACY_DIALOG=true; sideBarPost=1970; xuetangvendor=ykt_store_xiaomi; keoutvendor=; ke_Pdt=ydkWeb; ke_inLoc=; OUTFOX_SEARCH_USER_ID_NCOO=1288925762.7441041; Hm_lvt_e46790f6d676f71878ebef1153dda3e2=1655949225,1655953652,1656002346,1656210125; courseId=59009; NTESSTUDYSI=84da42124bda4da3b4f26065cef03eed; NTES_YD_SESS=ueeMVO1OF1gMbOUnwrzr41LJcEIKEVtD5L47G_bRG90QZ2qhZLps8Njp3imEQpNGZIs_QgT4slAQmmQOgwNM_jgiBYJms.NqAP7oInEuyLqEB_AzCa0uaL..vG0AVPv6okQuucbbvxRpNu75LIdPiAW0d3dT6T7j2th3pyg6vNiPqGQj9TaAPZS5yXARganVTdvx.ACWOMxT8unsd5bKi_gsFGEJ9n6HMVXXZ5SVA4Moi; NTES_YD_PASSPORT=1MO6bF40jEdNWQmQ2SrNYG.BnXt1obLPnVlWa0Jp.NnlceKDcQzbiWZz7LqFIzWscvbNIuHnb9RDQK9sLCGpRVd.7o51FRZ7XFbDBOFGCrKDL9LIabrmqyO.KoVrMukkvgldIL97L8WolUSEVMb91EuNp6w9vqfnN_MyUUt.vzDy2xwScGHR18UfD5xbPtuR8W0r2kYL9xiATUg8xmzT9A5Hx; S_INFO=1656223239|0|0&60##|13828460875; P_INFO=13828460875|1656223239|1|study|00&99|null&null&null#gud&440100#10#0#0|&0|null|13828460875; DICT_SESS=v2|7mHe6giZ2RYA0fkA0MQS0zWOLqFhfqy0JyRMkYhMg40gF0fJKhfpZ0zG0HJSOMg40PLO4kfkM6L0gu0fzM64wu0OEnfUfhM6F0; DICT_LOGIN=1||1656223239680; NETEASE_WDA_UID=1453061710#|#1611456020195; NTES_STUDY_YUNXIN_ACCID=s-1453061710; NTES_STUDY_YUNXIN_TOKEN=09261a82a7d73dbe17ce8b7aa6377359; Hm_lpvt_e46790f6d676f71878ebef1153dda3e2=1656226243; lessonId=3040823; utm=eyJjIjoiIiwiY3QiOiIiLCJpIjoiIiwibSI6IiIsInMiOiIiLCJ0IjoiIn0=|aHR0cHM6Ly9saXZlLnN0dWR5LjE2My5jb20v; hb_MA-BFF5-63705950A31C_source=ke.study.163.com; JSESSIONID=D5E3A3CA224EE61860EE2DDC18B17F1B_ntes_nnid=d210a1ed73ac8d49791dd9e007b8a7e7,1634192367969; _ntes_nuid=d210a1ed73ac8d49791dd9e007b8a7e7; UM_distinctid=17fbfa77430187-0d1d26d2b671fc-5617185b-100200-17fbfa77431f41; vinfo_n_f_l_n3=3cc07e6b80b1c971.1.0.1648187892685.0.1648187967384; EDUWEBDEVICE=398a0755db534b7f8b428017d18913a2; EDU-YKT-MODULE_GLOBAL_PRIVACY_DIALOG=true; sideBarPost=1970; xuetangvendor=ykt_store_xiaomi; keoutvendor=; ke_Pdt=ydkWeb; ke_inLoc=; OUTFOX_SEARCH_USER_ID_NCOO=1288925762.7441041; Hm_lvt_e46790f6d676f71878ebef1153dda3e2=1655949225,1655953652,1656002346,1656210125; courseId=59009; NTESSTUDYSI=84da42124bda4da3b4f26065cef03eed; NTES_YD_SESS=ueeMVO1OF1gMbOUnwrzr41LJcEIKEVtD5L47G_bRG90QZ2qhZLps8Njp3imEQpNGZIs_QgT4slAQmmQOgwNM_jgiBYJms.NqAP7oInEuyLqEB_AzCa0uaL..vG0AVPv6okQuucbbvxRpNu75LIdPiAW0d3dT6T7j2th3pyg6vNiPqGQj9TaAPZS5yXARganVTdvx.ACWOMxT8unsd5bKi_gsFGEJ9n6HMVXXZ5SVA4Moi; NTES_YD_PASSPORT=1MO6bF40jEdNWQmQ2SrNYG.BnXt1obLPnVlWa0Jp.NnlceKDcQzbiWZz7LqFIzWscvbNIuHnb9RDQK9sLCGpRVd.7o51FRZ7XFbDBOFGCrKDL9LIabrmqyO.KoVrMukkvgldIL97L8WolUSEVMb91EuNp6w9vqfnN_MyUUt.vzDy2xwScGHR18UfD5xbPtuR8W0r2kYL9xiATUg8xmzT9A5Hx; S_INFO=1656223239|0|0&60##|13828460875; P_INFO=13828460875|1656223239|1|study|00&99|null&null&null#gud&440100#10#0#0|&0|null|13828460875; STUDY_INFO=\"yd.a3d7bb5d90db452b8@163.com|8|1453061710|1656223239623\"; STUDY_SESS=\"ewwZXGPJCgIdhQZyKlAivbZNqDfdcnEYZC/3PYNvIPK7ARHbjp0KbtBiBQalOelEd576j8fTOQCEVtBIlPoDXu2pTrhCv5qJw3FR+Pg79GeqbpjAueOJbD6+pMWWg6FTf9G1iKzelXZAsBruHkqPQ5R71g5qdVzGq5waCm7Zl7sLhur2Nm2wEb9HcEikV+3FTI8+lZKyHhiycNQo+g+/oA==\"; STUDY_PERSIST=\"kR1jDZcxnohSw5v8UKhRctaBEHFrHRM0wpAW6CZRNp3Us6MLk+u/5dDs7I7+wuwLRYyCfO7dmeYkYH9evgZ+TVGaQ6FMiwp7siATddSBWseef6+fMAN5DhLjINSp2lSGmUveXmppQUzPFmneDOsmwxUKiT+YMPwCR6WxpJJRyw+8yQ70F+ClzJS/yIxAnlsIWem4V0ikHFr/EI1uZ/2fNWLXTpQdnuvatQT8FbzNggDZgpjCC7Iso4RP9U87vJE8LtaQzUT1ovP2MqtW5+L3Hw+PvH8+tZRDonbf7gEH7JU=\"; DICT_SESS=v2|7mHe6giZ2RYA0fkA0MQS0zWOLqFhfqy0JyRMkYhMg40gF0fJKhfpZ0zG0HJSOMg40PLO4kfkM6L0gu0fzM64wu0OEnfUfhM6F0; DICT_LOGIN=1||1656223239680; NETEASE_WDA_UID=1453061710#|#1611456020195; NTES_STUDY_YUNXIN_ACCID=s-1453061710; NTES_STUDY_YUNXIN_TOKEN=09261a82a7d73dbe17ce8b7aa6377359; Hm_lpvt_e46790f6d676f71878ebef1153dda3e2=1656226243; lessonId=3040823; utm=eyJjIjoiIiwiY3QiOiIiLCJpIjoiIiwibSI6IiIsInMiOiIiLCJ0IjoiIn0=|aHR0cHM6Ly9saXZlLnN0dWR5LjE2My5jb20v; hb_MA-BFF5-63705950A31C_source=ke.study.163.com; JSESSIONID=1CE0D018CFC8F275E7C367960D71615F"
+    }
+    resp = requests.get(url, headers=headers)
+    # print(resp.text)
+
+    obj = re.compile(r'window.lesson =(?P<lst>.*}])', re.S)
+    tmp = obj.finditer(resp.text)
+    for it in tmp:
+        lst = it.group("lst")
+    res = json.loads(lst)
+
+    # res[0] :　新人必读
+    # res[１] :　每日学习
+    # res[２] :　每周精讲
+
+    # print(res[2])
+    for it in res[2]["list"]: # 每周精讲
+        print("*****************************************************************************")
+        # print(type(it))
+        print(it)
+        lessonid = it.get('id')
+        # typeid = it.get('type')
+        title = it.get('title')
+
+        if it.get('material'):
+            # download the PDF file
+            url_pdf = it.get('material')
+            resp_pdf = requests.get(url_pdf,headers=headers)
+            file = f'{title}.pdf'
+            print(f'{file} is downloading')
+            with open(f"{file}", mode="wb") as f:
+                f.write(resp_pdf.content)
+            print(f'{file} saved')
+            continue
+
+        if it.get('video'):
+            # format the url and download it directly
+            # https://live.study.163.com/live/index.html?courseId=59009&lesson=3040821&type=1
+            # the url of video  https://ke.study.163.com/course/video.json?lessonId=3040821
+            url_video = f'https://ke.study.163.com/course/video.json?lessonId={lessonid}'
+            print(url_video)
+            resp_video = requests.get(url_video, headers=headers)
+            resp_video.encoding = resp_video.apparent_encoding
+            # print(resp_video.text)
+
+            if not resp_video.json() or resp_video.json().get('success') is False:
+                print(f'Not data returned from url {url_video}')
+                continue
+
+            url_mp4 = resp_video.json().get('result').get('videoUrl')
+            lessonTitle = resp_video.json().get('result').get('lessonTitle')
+            print(f'get {lessonTitle} video data starting.......')
+            resp_video.close()
+
+            # download
+            resp_mp4 = requests.get(url_mp4, headers=headers)
+            with open(f"{lessonTitle}.mp4", mode="wb") as f:
+                f.write(resp_mp4.content)
+            print(f'{lessonTitle}.mp4 saved')
+            resp_mp4.close()
+            continue
+
+        if it.get('url'):
+            # https://ke.study.163.com/cms/api/42299?noCache=true&api_version=2.1
+            articleId = it.get('articleId')
+            # https://ke.study.163.com/topic/study/article/index.html?pid=42758&courseId=59009&lessonId=3040761
+            url_article = f'https://ke.study.163.com/cms/api/{articleId}?noCache=true&api_version=2.1'
+            print(f'url-article is {url_article}')
+            getSubSeries(url_article)
+            continue
 
 
 # refer "https://ke.study.163.com/topic/study/article/index.html?pid=16096&courseId=59009&lessonId=3040763#/"
@@ -103,8 +177,7 @@ def getSubSeries(url):  # url ='https://ke.study.163.com/cms/api/43175?noCache=t
         print(f'{file} is downloading')
         with open(f"{title}_{i}.mp4", mode="wb") as f:
             f.write(resp_mp4.content)
-            file = f'{title}_{i}.mp4'
-            print(f'{file} saved')
+        print(f'{file} saved')
         resp_mp4.close()
 
     i = 0
@@ -115,17 +188,21 @@ def getSubSeries(url):  # url ='https://ke.study.163.com/cms/api/43175?noCache=t
         print(f'{file} is downloading')
         with open(f"{title}_{i}.mp3", mode="wb") as f:
             f.write(resp_mp3.content)
-            file = f'{title}_{i}.mp3'
-            print(f'{file} saved')
+        print(f'{file} saved')
         resp_mp3.close()
     print(f'get {title} data done.......')
 
 # 按间距中的绿色按钮以运行脚本。
 if __name__ == '__main__':
+    url = r'https://ke.study.163.com/course/detail/59009'
+    courseId = re.search(r'\d{5}$', url).group()
     # print_hi('PyCharm')
     # https://ke.study.163.com/cms/download/15852
     # GetSubSeries(r'https://ke.study.163.com/cms/api/16096')
-    # getSubSeries(r'https://ke.study.163.com/cms/api/16096')
-    getRecitationCamp()
+    # getSubSeries(r'https://live.study.163.com/live/index.html?courseId=59009&lesson=3040821&type=1')
+    # 每日学习
+    # getRecitationCamp()
+    # 每周精讲
+    getRecitationCamp2(url)
 
 # 访问 https://www.jetbrains.com/help/pycharm/ 获取 PyCharm 帮助
